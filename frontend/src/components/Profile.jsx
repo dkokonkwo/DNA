@@ -8,13 +8,19 @@ import Form from "react-bootstrap/Form";
 import { useState, useEffect } from "react";
 import NavbarMain from "./TopHeader";
 import axios from "axios";
+import Select from "react-select";
+import { Country, State, City } from "country-state-city";
+import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
 
 const Profile = () => {
+  const [stateData, setStateData] = useState([]);
+  const [cityData, setCityData] = useState([]);
+  const [countryISO, setCountryISO] = useState("");
+
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [userType, setUserType] = useState("");
-  const [systemStatus, setSystemStatus] = useState("");
 
   const [country, setCountry] = useState("");
   const [state, setState] = useState("");
@@ -142,6 +148,47 @@ const Profile = () => {
     }
   };
 
+  const countryData = Country.getAllCountries().map((countryOne) => ({
+    value: countryOne.name,
+    displayValue: countryOne.name,
+    isoCode: countryOne.isoCode,
+  }));
+
+  const handleChangeCountry = (e) => {
+    const selectedCountryName = e.target.value;
+    const country = countryData.find(
+      (country) => country.value === selectedCountryName
+    );
+    setCountry(selectedCountryName);
+    setCountryISO(country.isoCode);
+    setStateData(
+      State.getStatesOfCountry(country.isoCode).map((state) => ({
+        value: state.name,
+        displayValue: state.name,
+        isoCode: state.isoCode,
+      }))
+    );
+    // clear state and city when state changes
+    setState("");
+    setCity("");
+    setCityData([]);
+  };
+
+  const handleStateChange = (e) => {
+    const selectedStateName = e.target.value;
+    const state = stateData.find((state) => state.value === selectedStateName);
+    setState(selectedStateName);
+    console.log(state.isoCode, countryISO);
+    setCityData(
+      City.getCitiesOfState(countryISO, state.isoCode).map((city) => ({
+        value: city.name,
+        displayValue: city.name,
+      }))
+    );
+    // Clear city when state changes
+    setCity("");
+  };
+
   return (
     <>
       <NavbarMain />
@@ -154,8 +201,8 @@ const Profile = () => {
             </div>
             <div className="rows-farm">
               <h5>System Status</h5>
-              <h1 className={systemStatus ? "row-green" : "row-red"}>
-                {systemStatus ? "Online" : "Offline"}
+              <h1 className={userType ? "row-green" : "row-red"}>
+                {userType ? "Online" : "Offline"}
               </h1>
             </div>
             <div className="rows-farm">
@@ -166,30 +213,51 @@ const Profile = () => {
               <h5>Update Region</h5>
               <Row className="regione">
                 <Col className="col-6">
-                  <Form.Control
-                    type="text"
-                    placeholder="country"
+                  <Form.Select
+                    className="form-select-1"
                     value={country}
-                    onChange={(e) => setCountry(e.target.value)}
-                  />
+                    onChange={handleChangeCountry}
+                  >
+                    {countryData.map((option, index) => {
+                      return (
+                        <option key={index} value={option.value}>
+                          {option.displayValue}
+                        </option>
+                      );
+                    })}
+                  </Form.Select>
                 </Col>
                 <Col className="col-6">
-                  <Form.Control
-                    type="text"
-                    placeholder="state"
+                  <Form.Select
+                    className="form-select-1"
                     value={state}
-                    onChange={(e) => setState(e.target.value)}
-                  />
+                    onChange={handleStateChange}
+                  >
+                    {stateData.map((option, index) => {
+                      return (
+                        <option key={index} value={option.value}>
+                          {option.displayValue}
+                        </option>
+                      );
+                    })}
+                  </Form.Select>
                 </Col>
               </Row>
               <Row className="regione">
                 <Col className="col-6">
-                  <Form.Control
-                    type="text"
-                    placeholder="city"
-                    value={city}
+                  <Form.Select
+                    className="form-select-1"
+                    value={state}
                     onChange={(e) => setCity(e.target.value)}
-                  />
+                  >
+                    {cityData.map((option, index) => {
+                      return (
+                        <option key={index} value={option.value}>
+                          {option.displayValue}
+                        </option>
+                      );
+                    })}
+                  </Form.Select>
                 </Col>
                 <Col className="col-6">
                   <Button variant="primary" type="submit">

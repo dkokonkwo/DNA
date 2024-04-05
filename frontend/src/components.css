@@ -530,7 +530,7 @@
   border: 0px;
 }
 
-.regione .form-control {
+.regione .form-control, .form-select-1 {
   width: 100% !important;
   height: 95% !important;
   border-radius: 10px;
