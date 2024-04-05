@@ -8,9 +8,8 @@ import Form from "react-bootstrap/Form";
 import { useState, useEffect } from "react";
 import NavbarMain from "./TopHeader";
 import axios from "axios";
-import Select from "react-select";
 import { Country, State, City } from "country-state-city";
-import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
+
 
 const Profile = () => {
   const [stateData, setStateData] = useState([]);

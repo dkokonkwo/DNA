@@ -10,8 +10,38 @@ import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import "../contact.css";
 import NavbarMain from "./TopHeader";
+import axios from "axios";
+import { useEffect } from "react";
 
 const Contact = () => {
+  useEffect(() => {
+    const checkLogin = async () => {
+      try {
+        const response = await axios.get("http://127.0.0.1:5000/@me", {
+          withCredentials: true,
+        });
+        // No need to call response.json() with Axios, response.data holds the response data directly
+        const data = response.data;
+        if (response.status === 200) {
+          // Handle successful login
+          console.log(data.id);
+        } else {
+          // You can redirect the user to the login page if needed
+          window.location.href = "/login";
+        }
+      } catch (error) {
+        // Handle network errors or server errors
+        console.error("An error occurred:", error);
+        if (error.response.status === 401 || error.response.status === 404) {
+          alert("Unathorized");
+          window.location.href = "/login";
+        }
+      }
+    };
+
+    checkLogin();
+  }, []);
+
   return (
     <div className="page-2">
       <NavbarMain />
