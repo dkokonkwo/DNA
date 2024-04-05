@@ -1,0 +1,155 @@
+.page-2 {
+  overflow-x: hidden;
+  position: relative;
+  background-image: linear-gradient(#6d798f80, #01193a),
+    url("./assets/img/forest.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+}
+
+.contact-body {
+  margin-top: 8vh;
+  height: 72vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.body-row {
+  width: 100% !important;
+  height: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+/* background: linear-gradient(to bottom, #01193a, #b4cade); */
+/* background: linear-gradient(to bottom, #b4cade, #01193a); */
+
+.columns {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-card {
+  background: #01193a5b;
+  border: 2px solid #b4cade;
+  height: 90%;
+  width: 90%;
+  width: 70%;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  transition: 0.5s ease-in-out;
+}
+
+.contact-form {
+  height: 90%;
+  width: 90%;
+}
+
+.contact-card:hover {
+  transform: scale(1.02);
+}
+
+.contact-card p {
+  color: #b4cade;
+}
+.contact-details,
+.contact-info {
+  width: 80%;
+  font-size: 17px;
+}
+
+.contact-details {
+  height: 52%;
+}
+
+.contact-info h2 {
+  color: #0084ff;
+  font-size: 47px;
+  font-weight: 600;
+}
+
+.details {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-bottom: 15px;
+  align-items: center;
+  height: 15%;
+}
+
+.details p {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  margin-left: 20px;
+}
+
+/* CONTACT FORM */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-form Form {
+  height: 85%;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.name {
+  width: 100%;
+  height: 12%;
+}
+
+.email-phone {
+  width: 100%;
+  height: 12%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.text {
+  width: 100%;
+  height: 40%;
+}
+
+.contact-button {
+  width: 20%;
+  height: 10%;
+  background: #0084ff;
+  font-size: 18px;
+}
+
+.email,
+.phone {
+  height: 100%;
+  width: 48%;
+}
+
+.contact-form .form-control {
+  background: #b4cade;
+  border-radius: 10px;
+  height: 90% !important;
+  text-align: left;
+}
+
+.form-label {
+  color: #b4cade;
+  margin-bottom: 2px;
+}

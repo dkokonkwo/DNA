@@ -1,0 +1,181 @@
+body {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  position: relative;
+  background-image: linear-gradient(#97a0b180, #11151ab9),
+    url("./assets/img/farm.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  font-family: "DM Sans", sans-serif;
+}
+
+.login {
+  height: 100vh !important;
+  width: 100% !important;
+}
+
+.login-header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 20vh;
+  align-items: center;
+  justify-content: space-evenly;
+  /* background: #8b3939; */
+}
+
+.login-header h2 {
+  font-family: "Montserrat Subrayada", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 33px;
+  color: #004aac;
+}
+
+.logo-div,
+.login-header h2,
+.signup-div {
+  width: 30%;
+  height: 90%;
+  /* background: yellow; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.signup-div Button {
+  color: #004aac;
+  background: #b4cade;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 40%;
+  height: 40%;
+  border-radius: 25px;
+  font-size: 20px;
+}
+
+.icons {
+  font-size: 25px;
+  width: 20%;
+}
+
+.login-header img {
+  width: 94px;
+  height: 100px;
+  margin: 0 !important;
+}
+
+/* LOGIN FORM */
+
+.centered-form {
+  margin-top: 5vh;
+  height: 60vh;
+  width: 100%;
+  /* background: #8b3939; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-form {
+  /* background: yellow; */
+  width: 30%;
+  max-width: 470px;
+  height: 75%;
+  max-height: 280px !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.email,
+.login-form Button {
+  width: 85%;
+  height: 23%;
+}
+
+.form-control {
+  width: 100%;
+  height: 100% !important;
+  border-radius: 30px;
+  padding-left: 15px !important;
+  text-align: center;
+}
+
+.login-form Button {
+  border-radius: 30px;
+  background: #004aac;
+  font-size: 22px;
+}
+
+.extras {
+  width: 25%;
+  /* background: rgb(151, 151, 80); */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+/* SIGN UP CSS */
+.centered-form-2 {
+  margin-top: 5vh;
+  height: 60vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.centered-form-2 Form {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  color: #b4cade;
+}
+
+.other-signup {
+  height: 25%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.input {
+  width: 49%;
+  height: 100% !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.input .form-control {
+  width: 100%;
+  height: 40% !important;
+  border-radius: 20px;
+  text-align: left;
+}
+
+.input .form-label {
+  margin-left: 10px;
+}
+
+.centered-form-2 Button {
+  width: 22%;
+  height: 12%;
+  font-size: 18px;
+  background: #004aac;
+}
+
+.user-type {
+  width: 70%;
+}

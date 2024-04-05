@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat+Subrayada:wght@400;700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+
+@import url('https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 75px;
+}
+
+/* HEADER */
+.header {
+  color: #ffffff !important;
+  height: 14vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0 !important;
+}
+
+.header-contain {
+  width: 98% !important;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 !important;
+}
+
+.logo {
+  width: 27%;
+  height: 100%;
+  margin: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.logo h2 {
+  font-family: "Montserrat Subrayada", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 37px;
+  color: #b4cade;
+  height: 50%;
+  margin: 0;
+  width: 40%;
+  text-align: center;
+}
+
+.logo img,
+.profile-pic img {
+  width: 94px;
+  height: 100px;
+  margin: 0 !important;
+}
+
+.collapse-content {
+  width: 70%;
+  margin: 0 !important;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.links {
+  width: 62%;
+  height: 100%;
+  background: #b4cade;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 0 0 40px 40px;
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-size: 20px;
+  font-style: normal;
+}
+
+.profile-pic {
+  width: 30%;
+  height: 100%;
+  color: #b4cade;
+  display: flex !important;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.profile-pic img {
+  width: 100px;
+  border-radius: 50%;
+  border: 3px solid #b4cade;
+}
+
+.profile-pic Button {
+  background: lightseagreen;
+}
