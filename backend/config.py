@@ -27,6 +27,7 @@ app.config['SESSION_PERMANENT'] = False
 app.config['SESSION_USE_SIGNER'] = True
 app.config['SESSION_REDIS'] = redis.from_url("redis://red-co8ap5v109ks73ebobgg:6379")
 app.config['SESSION_COOKIE_SAMESITE'] = 'None'
+app.config['SESSION_COOKIE_SECURE'] = True
 app.config.from_object(__name__)
 
 server_session = Session(app)
