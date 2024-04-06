@@ -6,17 +6,20 @@ from flask_cors import CORS
 from flask_session import Session
 import redis
 from dotenv import load_dotenv
+import os
 
 
 load_dotenv()
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
-CORS(app, resources={r"/get_region": {"origins": "http://localhost:5173/profile"}})
+CORS(app, resources={
+     r"/get_region": {"origins": "http://localhost:5173/profile"}})
 
 
 app.config['SECRET_KEY'] = '69fabc551f04c6536181afc7ebe0cd18'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
+# postgresql://dnadatabase_user:0iTgP2OXezlf1LPs3BI08bMUnIgiiBk5@dpg-co892ra0si5c73c6v72g-a.oregon-postgres.render.com/dnadatabase
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
 
