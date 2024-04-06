@@ -13,8 +13,10 @@ import Button from "react-bootstrap/Button";
 import logo from "../assets/img/logo.png";
 import iron from "../assets/img/default.jpg";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const NavbarMain = () => {
+  const navigate = useNavigate();
   const logout = async () => {
     try {
       const response = await axios.get("https://dna-e9hf.onrender.com/logout", {
@@ -25,7 +27,7 @@ const NavbarMain = () => {
       if (response.status === 200) {
         // Handle successful login
         alert(data.message);
-        window.location.href = "/login";
+        navigate("/login");
       } else {
         // You can redirect the user to the login page if needed
       }
@@ -33,7 +35,7 @@ const NavbarMain = () => {
       // Handle network errors or server errors
       console.error("An error occurred:", error);
       if (error.response.status === 401) {
-        alert("Unathorized");
+        alert("close browser to log out");
       }
     }
   };

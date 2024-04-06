@@ -15,8 +15,10 @@ import {
   Link,
   Navigate,
 } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const [userType, setUserType] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -58,7 +60,7 @@ const SignUp = () => {
       alert(data.message);
     } else {
       // updateCallback();
-      window.location.href = "/login";
+      navigate("/login");
     }
   };
 

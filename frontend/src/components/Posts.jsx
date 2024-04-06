@@ -8,8 +8,10 @@ import iron from "../assets/img/default.jpg";
 import { useEffect, useState } from "react";
 import NavbarMain from "./TopHeader";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Posts = () => {
+  const navigate = useNavigate();
   const [posts, setPosts] = useState([]);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -34,14 +36,14 @@ const Posts = () => {
           getPosts();
         } else {
           // You can redirect the user to the login page if needed
-          window.location.href = "/login";
+          navigate("/login");
         }
       } catch (error) {
         // Handle network errors or server errors
         console.error("An error occurred:", error);
         if (error.response.status === 401 || error.response.status === 404) {
           alert("please sign in again");
-          window.location.href = "/login";
+          navigate("/login");
         }
       }
     };

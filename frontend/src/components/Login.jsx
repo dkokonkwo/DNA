@@ -16,8 +16,10 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Login = ({ updateCallback }) => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -41,7 +43,7 @@ const Login = ({ updateCallback }) => {
 
       if (response.status === 201 || response.status === 200) {
         // Login successful, redirect to home page or do any other action
-        window.location.href = "/";
+        navigate("/");
       } else {
         // Handle other response statuses
         alert(response.data.message);
@@ -54,7 +56,7 @@ const Login = ({ updateCallback }) => {
   };
 
   const goToSignup = () => {
-    window.location.href = "/signup";
+    navigate("/signup");
   };
 
   return (

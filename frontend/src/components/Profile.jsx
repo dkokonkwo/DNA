@@ -9,9 +9,11 @@ import { useState, useEffect } from "react";
 import NavbarMain from "./TopHeader";
 import axios from "axios";
 import { Country, State, City } from "country-state-city";
+import { useNavigate } from "react-router-dom";
 
 
 const Profile = () => {
+  const navigate = useNavigate();
   const [stateData, setStateData] = useState([]);
   const [cityData, setCityData] = useState([]);
   const [countryISO, setCountryISO] = useState("");
@@ -42,14 +44,14 @@ const Profile = () => {
           getRegion();
         } else {
           // You can redirect the user to the login page if needed
-          window.location.href = "/login";
+          navigate("/login");
         }
       } catch (error) {
         // Handle network errors or server errors
         console.error("An error occurred:", error);
         if (error.response.status === 401 || error.response.status === 404) {
-          alert("Unathorized");
-          window.location.href = "/login";
+          console.log("Unathorized");
+          navigate("/login");
         }
       }
     };

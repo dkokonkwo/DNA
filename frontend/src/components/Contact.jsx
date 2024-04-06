@@ -12,8 +12,10 @@ import "../contact.css";
 import NavbarMain from "./TopHeader";
 import axios from "axios";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Contact = () => {
+  const navigate = useNavigate();
   useEffect(() => {
     const checkLogin = async () => {
       try {
@@ -27,14 +29,14 @@ const Contact = () => {
           console.log(data.id);
         } else {
           // You can redirect the user to the login page if needed
-          window.location.href = "/login";
+          navigate("/login");
         }
       } catch (error) {
         // Handle network errors or server errors
         console.error("An error occurred:", error);
         if (error.response.status === 401 || error.response.status === 404) {
           alert("Unathorized");
-          window.location.href = "/login";
+          navigate("/login");
         }
       }
     };

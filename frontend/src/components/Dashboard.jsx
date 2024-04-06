@@ -20,6 +20,7 @@ import { MapContainer, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { Marker } from "react-leaflet";
 import { Icon } from "leaflet";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
   const [tempCel, setTempCel] = useState("");
@@ -32,6 +33,7 @@ const Dashboard = () => {
   const [lastPost, setLastPost] = useState({});
   const [city, setCity] = useState("");
   const [systemStatus, setSystemStatus] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const checkLogin = async () => {
@@ -47,13 +49,14 @@ const Dashboard = () => {
           fetchDashboard();
         } else {
           // You can redirect the user to the login page if needed
-          window.location.href = "/login";
+          navigate("/login");
         }
       } catch (error) {
         // Handle network errors or server errors
         console.error("An error occurred:", error);
-        if (error.response.status === 401) {
-          alert("Unathorized");
+        if (error.response.status === 401 || error.response.status === 404) {
+          console.log("Unathorized");
+          navigate("/login");
         }
       }
     };
@@ -84,7 +87,6 @@ const Dashboard = () => {
         setLastPost(data.lastPost);
       } else {
         // You can redirect the user to the login page if needed
-        // window.location.href = "/login";
       }
     } catch (error) {
       // Handle network errors or server errors

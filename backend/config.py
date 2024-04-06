@@ -7,6 +7,7 @@ from flask_session import Session
 import redis
 from dotenv import load_dotenv
 import os
+from redis.sentinel import Sentinel
 
 
 load_dotenv()
@@ -26,7 +27,9 @@ app.config['SQLALCHEMY_ECHO'] = True
 app.config['SESSION_TYPE'] = 'redis'
 app.config['SESSION_PERMANENT'] = False
 app.config['SESSION_USE_SIGNER'] = True
-app.config['SESSION_REDIS'] = redis.from_url("redis://127.0.0.1:6379")
+sentinel = Sentinel([('100.20.92.101', 6379), ('44.225.181.72', 6379), ('44.227.217.144', 6379)], socket_timeout=0.1)
+master = sentinel.master_for('mymaster', socket_timeout=0.1)
+app.config['SESSION_REDIS'] = master
 app.config['SESSION_COOKIE_SAMESITE'] = 'None'
 app.config.from_object(__name__)
 

@@ -27,6 +27,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import { useNavigate } from "react-router-dom";
 
 const Farm = () => {
   const [tempCel, setTempCel] = useState("");
@@ -40,6 +41,7 @@ const Farm = () => {
   const [randomInt2, setRandomInt2] = useState("");
   const [randomInt3, setRandomInt3] = useState("");
   const [randomInt4, setRandomInt4] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const checkLogin = async () => {
@@ -56,13 +58,14 @@ const Farm = () => {
           numbersRand();
         } else {
           // You can redirect the user to the login page if needed
-          window.location.href = "/login";
+          navigate("/login");
         }
       } catch (error) {
         // Handle network errors or server errors
         console.error("An error occurred:", error);
-        if (error.response.status === 401) {
-          alert("Unathorized");
+        if (error.response.status === 401 || error.response.status === 404) {
+          console.log("Unathorized");
+          navigate("/login");
         }
       }
     };
