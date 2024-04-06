@@ -44,7 +44,7 @@ const SignUp = () => {
       return;
     }
 
-    const url = "http://127.0.0.1:5000/signup";
+    const url = "https://dna-e9hf.onrender.com/signup";
     const options = {
       method: "POST",
       headers: {

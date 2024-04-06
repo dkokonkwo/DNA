@@ -29,7 +29,7 @@ const Login = ({ updateCallback }) => {
       password,
     };
 
-    const url = "http://127.0.0.1:5000/login";
+    const url = "https://dna-e9hf.onrender.com/login";
 
     try {
       const response = await axios.post(url, data, {

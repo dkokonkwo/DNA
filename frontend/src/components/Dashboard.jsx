@@ -36,7 +36,7 @@ const Dashboard = () => {
   useEffect(() => {
     const checkLogin = async () => {
       try {
-        const response = await axios.get("http://127.0.0.1:5000/@me", {
+        const response = await axios.get("https://dna-e9hf.onrender.com/@me", {
           withCredentials: true,
         });
         // No need to call response.json() with Axios, response.data holds the response data directly
@@ -63,7 +63,7 @@ const Dashboard = () => {
 
   const fetchDashboard = async () => {
     try {
-      const response = await axios.get("http://127.0.0.1:5000/", {
+      const response = await axios.get("https://dna-e9hf.onrender.com/", {
         withCredentials: true,
       });
       const data = response.data;

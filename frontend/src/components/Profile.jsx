@@ -28,7 +28,7 @@ const Profile = () => {
   useEffect(() => {
     const checkLogin = async () => {
       try {
-        const response = await axios.get("http://127.0.0.1:5000/@me", {
+        const response = await axios.get("https://dna-e9hf.onrender.com/@me", {
           withCredentials: true,
         });
         // No need to call response.json() with Axios, response.data holds the response data directly
@@ -59,7 +59,7 @@ const Profile = () => {
 
   const getRegion = async () => {
     try {
-      const response = await axios.get("http://127.0.0.1:5000/get_region", {
+      const response = await axios.get("https://dna-e9hf.onrender.com/get_region", {
         withCredentials: true,
       });
       // No need to call response.json() with Axios, response.data holds the response data directly
@@ -91,7 +91,7 @@ const Profile = () => {
       password,
     };
 
-    const url = "http://127.0.0.1:5000/update_profile";
+    const url = "https://dna-e9hf.onrender.com/update_profile";
 
     try {
       const response = await axios.post(url, data, {
@@ -123,7 +123,7 @@ const Profile = () => {
       city,
     };
 
-    const url = "http://127.0.0.1:5000/region";
+    const url = "https://dna-e9hf.onrender.com/region";
 
     try {
       const response = await axios.post(url, data, {

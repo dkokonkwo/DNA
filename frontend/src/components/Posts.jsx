@@ -23,7 +23,7 @@ const Posts = () => {
   useEffect(() => {
     const checkLogin = async () => {
       try {
-        const response = await axios.get("http://127.0.0.1:5000/@me", {
+        const response = await axios.get("https://dna-e9hf.onrender.com/@me", {
           withCredentials: true,
         });
         const data = response.data;
@@ -51,7 +51,7 @@ const Posts = () => {
 
   const getPosts = async () => {
     try {
-      const response = await axios.get("http://127.0.0.1:5000/posts", {
+      const response = await axios.get("https://dna-e9hf.onrender.com/posts", {
         withCredentials: true,
       });
 
@@ -86,7 +86,7 @@ const Posts = () => {
       return;
     }
 
-    const url = "http://127.0.0.1:5000/create_post";
+    const url = "https://dna-e9hf.onrender.com/create_post";
 
     try {
       const response = await axios.post(url, data, {
@@ -115,7 +115,7 @@ const Posts = () => {
       content,
     };
 
-    const url = "http://127.0.0.1:5000/" + `update_post/${id}`;
+    const url = "https://dna-e9hf.onrender.com/" + `update_post/${id}`;
     const options = {
       method: "PATCH",
       headers: {
@@ -133,7 +133,7 @@ const Posts = () => {
   };
 
   const deletePost = async (postId) => {
-    const url = `http://127.0.0.1:5000/delete_post/${postId}`;
+    const url = `https://dna-e9hf.onrender.com/delete_post/${postId}`;
 
     try {
       const response = await axios.delete(url, {
