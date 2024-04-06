@@ -118,8 +118,8 @@ const Dashboard = () => {
               <h6>My Farm</h6>
               <div className="status">
                 <h5>System Status</h5>
-                <h1 className={systemStatus ? "row-green" : "row-red"}>
-                  {systemStatus ? "Online" : "Offline"}
+                <h1 className={localTime ? "row-green" : "row-red"}>
+                  {localTime ? "Online" : "Offline"}
                 </h1>
               </div>
             </div>
