@@ -7,15 +7,13 @@ from flask_session import Session
 import redis
 from dotenv import load_dotenv
 import os
-from redis.sentinel import Sentinel
 
 
 load_dotenv()
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
-CORS(app, resources={
-     r"/get_region": {"origins": "http://localhost:5173/profile"}})
+CORS(app, resources={r"/get_region": {"origins": "http://localhost:5173/profile"}})
 
 
 app.config['SECRET_KEY'] = '69fabc551f04c6536181afc7ebe0cd18'
@@ -27,9 +25,7 @@ app.config['SQLALCHEMY_ECHO'] = True
 app.config['SESSION_TYPE'] = 'redis'
 app.config['SESSION_PERMANENT'] = False
 app.config['SESSION_USE_SIGNER'] = True
-sentinel = Sentinel([('100.20.92.101', 6379), ('44.225.181.72', 6379), ('44.227.217.144', 6379)], socket_timeout=0.1)
-master = sentinel.master_for('mymaster', socket_timeout=0.1)
-app.config['SESSION_REDIS'] = master
+app.config['SESSION_REDIS'] = redis.from_url("redis://red-co8ap5v109ks73ebobgg:6379")
 app.config['SESSION_COOKIE_SAMESITE'] = 'None'
 app.config.from_object(__name__)
 
